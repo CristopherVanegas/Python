@@ -1,10 +1,23 @@
 from tkinter import *
+from os import system
 
 ######################## SEND DATA FUNCTION ########################
 
 def send_data():
-    pass
+    username_data_collect = username.get()
+    password_data_collect = str(password.get())
+    fullname_data_collect = fullname.get()
+    age_data_collect = str(age.get())
+    print(username_data_collect, '\t', password_data_collect, '\t', fullname_data_collect, '\t', age_data_collect)  # print the data collected
 
+    nFile = open('registration.txt', 'a')
+    nFile.write(username_data_collect + '\t')
+    nFile.write(password_data_collect + '\t')
+    nFile.write(fullname_data_collect + '\t')
+    nFile.write(age_data_collect + '\t')
+
+    nFile.write('\n')
+    system('open ./registration.txt')
 
 ######################## CONSTANTS ########################
 
